@@ -1,0 +1,99 @@
+{
+    "ball": {
+      "x": 0,
+      "y": 0,
+      "vx": 0,
+      "vy": 0
+    },
+    "robots": {
+      "yellow": [
+        {
+          "id": 0,
+          "x": 1.5,
+          "y": 1.12,
+          "orientation": 3.14,
+          "turnOn": true
+        },
+        {
+          "id": 1,
+          "x": 1.5,
+          "y": 0,
+          "orientation": 3.14,
+          "turnOn": true
+        },
+        {
+          "id": 2,
+          "x": 1.5,
+          "y": -1.12,
+          "orientation": 3.14,
+          "turnOn": true
+        },
+        {
+          "id": 3,
+          "x": 0.55,
+          "y": 0,
+          "orientation": 3.14,
+          "turnOn": true
+        },
+        {
+          "id": 4,
+          "x": 2.5,
+          "y": 0,
+          "orientation": 3.14,
+          "turnOn": true
+        },
+        {
+          "id": 5,
+          "x": 3.60,
+          "y": 0,
+          "orientation": 3.14,
+          "turnOn": true
+        }
+      ],
+      "blue": [
+        {
+          "id": 0,
+          "x": -1.5,
+          "y": 1.12,
+          "orientation": 3.14,
+          "turnOn": true
+        },
+        {
+          "id": 1,
+          "x": -1.5,
+          "y": 0,
+          "orientation": 0,
+          "turnOn": true
+        },
+        {
+          "id": 2,
+          "x": -1.5,
+          "y": -1.12,
+          "orientation": 0,
+          "turnOn": true
+        },
+        {
+          "id": 3,
+          "x": -0.55,
+          "y": 0,
+          "orientation": 0,
+          "turnOn": true
+        },
+        {
+          "id": 4,
+          "x": -2.5,
+          "y": 0,
+          "orientation": 0,
+          "turnOn": true
+        },
+        {
+          "id": 5,
+          "x": -3.60,
+          "y": 0,
+          "orientation": 0,
+          "turnOn": true
+        }
+      ]
+    }
+  }
+  
