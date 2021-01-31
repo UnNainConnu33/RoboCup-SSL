@@ -31,7 +31,7 @@ export default class Losange extends Strategies {
   compute(broker: ServiceBroker): boolean {
     void broker.call('bots-control.moveTo', {
       id: this.ids[0],
-      target: { x: -1.8, y: 0 },
+      target: { x: -1, y: 0 },
       orientation: -3.14,
       expectedReachTime: 10,
     } as MoveToPacket)
@@ -45,7 +45,7 @@ export default class Losange extends Strategies {
 
     void broker.call('bots-control.moveTo', {
       id: this.ids[2],
-      target: { x: 1.8, y: 0 },
+      target: { x: 1, y: 0 },
       orientation: -3.14,
       expectedReachTime: 10,
     } as MoveToPacket)

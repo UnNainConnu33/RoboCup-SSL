@@ -27,7 +27,7 @@ export default class Triangle extends Strategies {
       state.assign.register(ctx.params.ids, new Triangle(ctx.params.ids))
     },
   }
-
+  
   compute(broker: ServiceBroker): boolean {
     void broker.call('bots-control.moveTo', {
       id: this.ids[0],

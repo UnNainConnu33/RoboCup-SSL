@@ -39,12 +39,16 @@ export default class Turn extends Strategies {
       power: 10,
       yellow: true,
       velocity: {
-        normal : 0,
+        normal : robot_allies.position.y + robot_allies.position.x*(0.2^2 - robot_allies.position.x^2 - robot_allies.position.y^2),
         angular : 0,
-        tangent : 1,
+        tangent : - robot_allies.position.x + robot_allies.position.y*(0.2^2 - robot_allies.position.x^2 - robot_allies.position.y^2),
       }
     } as Control)
 
     return true
   }
 }
+
+
+// dx/dt = y + x*(R²-x²-y²)
+// dy/dt = -x + y*(R²-x²-y²)

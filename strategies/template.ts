@@ -5,6 +5,8 @@ import Strategies from '@ssl/types/internal/task-manager/tasks/strategies'
 import { state } from '../../models/GameState'
 import { pi } from 'mathjs';
 
+// call "MSB.template" ' { "id" : 0 }'
+
 export default class Template extends Strategies {
   name = 'template';
 

@@ -30,6 +30,7 @@ export default class Square extends Strategies {
   }
 
   compute(broker: ServiceBroker): boolean {
+    
     void broker.call('bots-control.moveTo', {
       id: this.ids[0],
       target: { x: -1, y: 1 },
