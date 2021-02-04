@@ -7,13 +7,14 @@ import { state } from '../../models/GameState'
 /**
  * call "MSB.MoveTo" '{ "id_X_Y" : [[id,X,Y],[id,X,Y],...] }' (To try with npm run repl)
  * 
- * call "MSB.MoveTo" '{ "id_X_Y" : [[0,6,0],[1,1,0],[2,2.5,1],[3,2.5,-1],[4,4,1.5],[5,4,0.5],[6,4,-0.5],[7,4,-1.5]] }'
- * call "MSB.MoveTo" '{ "id_X_Y" : [[0,0,4],[1,0,3],[2,0,2],[3,0,1],[4,0,-1],[5,0,-2],[6,0,-3],[7,0,-4]] }'
+ * call "MSB.MoveTo" '{ "id_X_Y" : [[0,2,0],[1,1,0],[2,2.5,1],[3,2.5,-1],[4,2.5,1.5],[5,2.5,0.5]] }'
+ * call "MSB.MoveTo" '{ "id_X_Y" : [[0,0,4],[1,0,3],[2,0,2],[3,0,1],[4,0,-1],[5,0,-2]] }'
  */
+
 export default class MoveTo extends Strategies {
   name = 'MoveTo';
 
-  public constructor(public id_X_Y: number[][]) {
+  public constructor( public id_X_Y: number[][] ) {
     super()
   }
 
@@ -25,9 +26,9 @@ export default class MoveTo extends Strategies {
     },
     handler(ctx: Context<{ id_X_Y: number[][]}>): void {
       ctx.broker.logger.info('MoveToPacket packet received')
-      for(let i=0; i<8;i++){ // Pour chaque tableau [id,X,Y] :
-        //(j'ai mis i<8 car array.length n'a pas fonctionné)
-        if(ctx.params.id_X_Y[i]){ // si le tableau existe : 
+
+      for(let i = 0; i < 6; i++){ // Pour chaque tableau [id,X,Y] :
+        if(ctx.params.id_X_Y[i]){ // si le tableau existe
           state.assign.register(ctx.params.id_X_Y[i], new MoveTo(ctx.params.id_X_Y))
         }
       }
@@ -35,19 +36,20 @@ export default class MoveTo extends Strategies {
   }
 
   compute(broker: ServiceBroker): boolean {
+
     const ball = state.data.ball
 
-    for(let i = 0; i < 8; i++){ 
-      if(this.id_X_Y[i]){ 
+    for(let i = 0; i < 6; i++){ 
 
-    void broker.call('bots-control.moveTo', {
-      id: this.id_X_Y[i][0],
-      target: {x: this.id_X_Y[i][1] + ball.position.x, y: this.id_X_Y[i][2] + ball.position.y} ,
-      orientation: 0,
-      expectedReachTime: 10,
-    } as MoveToPacket)
-  }
-  }
-    return true
+      if(this.id_X_Y[i]){ 
+        void broker.call('bots-control.moveTo', {
+          id: this.id_X_Y[i][0],
+          target: {x: this.id_X_Y[i][1] + ball.position.x, y: this.id_X_Y[i][2] + ball.position.y} ,
+          orientation: 0,
+          expectedReachTime: 10,
+        } as MoveToPacket)
+      }
+    }
+      return true
   }
 }

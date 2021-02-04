@@ -1,18 +1,18 @@
+import { FunctionAssignmentNodeDependencies } from 'mathjs'
 import Turn from './turn'
 import Triangle from './triangle'
 import Template from './template'
 import Square from './square'
 import Losange from './losange'
 import Stalk from './stalk'
-import Test from './shoot'
-import { FunctionAssignmentNodeDependencies } from 'mathjs'
+import Test from './test'
 import Follow_ball from './follow_ball'
-import Avoids from './avoids'
 import ZigZag from './zigZag'
 import UseZigZag from './useZigZag'
 import MoveTo from './MoveTo'
 import Shoot from './shoot'
-import Ball from './ball'
+import Around from './around'
+import Pathfinding from './Pathfinding'
 
 export default {
   turn: Turn.declaration,
@@ -23,9 +23,10 @@ export default {
   stalk: Stalk.declaration,
   shoot: Shoot.declaration,
   follow_ball: Follow_ball.declaration,
-  avoids: Avoids.declaration,
+  pathfinding: Pathfinding.declaration,
   zigZag: ZigZag.declaration,
   useZigZag: UseZigZag.declaration,
   MoveTo: MoveTo.declaration,
-  Ball: Ball.declaration,
+  Around: Around.declaration,
+  Test: Test.declaration,
 }
